@@ -23,8 +23,8 @@ public class MarsRover {
         switch(command){
             case "M" : moveRover(); break;
             case "L" :
-            case "R" :changeHeading(command); break;
-            default : System.out.println("Invalid command");
+            case "R" : changeHeading(command); break;
+            default : System.out.println("Empty command");
         }
     }
 
@@ -39,7 +39,7 @@ public class MarsRover {
                 newHeading = (HEADINGS.indexOf(heading) < 3) ? HEADINGS.indexOf(heading)+1 : 0;
                 heading = HEADINGS.get(newHeading);
                 break;
-            default: System.out.println("Invalid direction");
+            default:
         }
     }
 
@@ -49,7 +49,7 @@ public class MarsRover {
             case "S": y--; break;
             case "E": x++; break;
             case "W": x--; break;
-            default : System.out.println("Invalid heading");
+            default :
         }
     }
 

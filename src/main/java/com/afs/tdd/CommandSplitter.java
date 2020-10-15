@@ -10,7 +10,11 @@ public class CommandSplitter {
         this.input = input;
     }
 
-    public List<String> getCommandList(){
-        return Arrays.asList(input.split(""));
+    public List<String> getCommandList() throws CommandNotDefinedException {
+        if(input.matches("^[MLR]*$")) {
+            return Arrays.asList(input.split(""));
+        } else {
+            throw new CommandNotDefinedException();
+        }
     }
 }
