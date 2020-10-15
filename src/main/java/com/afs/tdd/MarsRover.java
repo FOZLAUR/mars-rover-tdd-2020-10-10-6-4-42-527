@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class MarsRover {
+    final private static List<String> HEADINGS = Arrays.asList("N","E","S","W");
     private int x;
     private int y;
     private String heading;
@@ -20,12 +21,22 @@ public class MarsRover {
 
     private void executeCommand(String command) {
         switch(command){
-            case "M" : move(); break;
+            case "M" : moveRover(); break;
+            case "L" : changeHeading(command); break;
             default : System.out.println("Invalid command");
         }
     }
 
-    private void move() {
+    private void changeHeading(String direction) {
+        switch(direction){
+            case "L":
+                int newDirection = (HEADINGS.indexOf(heading) > 0) ? HEADINGS.indexOf(heading)-1 : 3  ;
+                heading = HEADINGS.get(newDirection); break;
+            default:
+        }
+    }
+
+    private void moveRover() {
         switch(heading){
             case "N": y++; break;
             case "S": y--; break;
