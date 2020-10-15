@@ -29,6 +29,7 @@ public class MarsRover {
         switch(heading){
             case "N": y++; break;
             case "S": y--; break;
+            case "E": x++; break;
             default : System.out.println("Invalid heading");
         }
     }
