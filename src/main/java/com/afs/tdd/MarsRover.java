@@ -22,17 +22,24 @@ public class MarsRover {
     private void executeCommand(String command) {
         switch(command){
             case "M" : moveRover(); break;
-            case "L" : changeHeading(command); break;
+            case "L" :
+            case "R" :changeHeading(command); break;
             default : System.out.println("Invalid command");
         }
     }
 
     private void changeHeading(String direction) {
+        int newHeading = -1;
         switch(direction){
             case "L":
-                int newDirection = (HEADINGS.indexOf(heading) > 0) ? HEADINGS.indexOf(heading)-1 : 3  ;
-                heading = HEADINGS.get(newDirection); break;
-            default:
+                newHeading = (HEADINGS.indexOf(heading) > 0) ? HEADINGS.indexOf(heading)-1 : 3  ;
+                heading = HEADINGS.get(newHeading);
+                break;
+            case "R" :
+                newHeading = (HEADINGS.indexOf(heading) < 3) ? HEADINGS.indexOf(heading)+1 : 0;
+                heading = HEADINGS.get(newHeading);
+                break;
+            default: System.out.println("Invalid direction");
         }
     }
 

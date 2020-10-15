@@ -6,7 +6,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class DemoTest {
+public class DemoTest {
     @Test
     void should_return_x_0_y_1_heading_N_when_move_rover_given_x_0_y_0_heading_N() {
         //given
@@ -125,5 +125,20 @@ class DemoTest {
         assertEquals(0,marsRover.getLocationX());
         assertEquals(0,marsRover.getLocationY());
         assertEquals("S",marsRover.getHeading());
+    }
+
+    @Test
+    void should_return_x_0_y_0_heading_N_when_change_heading_right_given_x_0_y_0_heading_W() {
+        //given
+        MarsRover marsRover = new MarsRover(0,0,"W");
+        List<String> commands = new CommandSplitter("R").getCommandList();
+
+        //when
+        marsRover.executeBatchCommand(commands);
+
+        //should
+        assertEquals(0,marsRover.getLocationX());
+        assertEquals(0,marsRover.getLocationY());
+        assertEquals("N",marsRover.getHeading());
     }
 }
