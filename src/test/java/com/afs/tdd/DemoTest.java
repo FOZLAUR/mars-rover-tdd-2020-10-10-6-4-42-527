@@ -96,7 +96,7 @@ class DemoTest {
         assertEquals(0,marsRover.getLocationY());
         assertEquals("E",marsRover.getHeading());
     }
-    
+
     @Test
     void should_return_x_0_y_0_heading_N_when_change_heading_left_given_x_0_y_0_heading_E() {
         //given
@@ -110,5 +110,20 @@ class DemoTest {
         assertEquals(0,marsRover.getLocationX());
         assertEquals(0,marsRover.getLocationY());
         assertEquals("N",marsRover.getHeading());
+    }
+
+    @Test
+    void should_return_x_0_y_0_heading_S_when_change_heading_left_given_x_0_y_0_heading_W() {
+        //given
+        MarsRover marsRover = new MarsRover(0,0,"W");
+        List<String> commands = new CommandSplitter("L").getCommandList();
+
+        //when
+        marsRover.executeBatchCommand(commands);
+
+        //should
+        assertEquals(0,marsRover.getLocationX());
+        assertEquals(0,marsRover.getLocationY());
+        assertEquals("S",marsRover.getHeading());
     }
 }
