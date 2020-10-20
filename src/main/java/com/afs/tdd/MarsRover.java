@@ -1,11 +1,14 @@
 package com.afs.tdd;
 
+import commands.MoveCommand;
+
 import java.util.Arrays;
 import java.util.List;
 
 public class MarsRover {
     final private static List<String> HEADINGS = Arrays.asList("N","E","S","W");
     private RoverStatus roverStatus;
+    private CommandInvoker commandInvoker = new CommandInvoker();
 
     public MarsRover(int x, int y, String heading) {
         roverStatus = new RoverStatus(x,y,heading);
@@ -17,7 +20,7 @@ public class MarsRover {
 
     private void executeCommand(String command) {
         switch(command){
-            case "M" : moveRover(); break;
+            case "M" : commandInvoker.executeOperation(new MoveCommand(roverStatus)); break;
             case "L" :
             case "R" : changeHeading(command); break;
             default : System.out.println("Empty command");
