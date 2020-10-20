@@ -1,4 +1,4 @@
-package com.afs.tdd;
+package commands;
 
 public interface Command {
     public void execute();
