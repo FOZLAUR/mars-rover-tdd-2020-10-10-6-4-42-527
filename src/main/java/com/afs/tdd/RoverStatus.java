@@ -34,4 +34,20 @@ public class RoverStatus {
     public void setCurrentHeading(String currentHeading) {
         this.currentHeading = currentHeading;
     }
+
+    public void incrementX(){
+        x++;
+    }
+
+    public void decrementX(){
+        x--;
+    }
+
+    public void incrementY(){
+        y++;
+    }
+
+    public void decrementY(){
+        y--;
+    }
 }
