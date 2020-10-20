@@ -6,20 +6,19 @@ import java.util.List;
 public class CommandExecutor {
     final private static List<String> HEADINGS = Arrays.asList("N","E","S","W");
     private RoverStatus roverStatus;
+    private int newHeading;
 
     public CommandExecutor(RoverStatus roverStatus){
         this.roverStatus = roverStatus;
     }
 
     public void turnLeft() {
-        int newHeading = -1;
         String currentHeading = roverStatus.getCurrentHeading();
         newHeading = (HEADINGS.indexOf(currentHeading) > 0) ? HEADINGS.indexOf(currentHeading)-1 : 3  ;
         roverStatus.setCurrentHeading(HEADINGS.get(newHeading));
     }
 
     public void turnRight() {
-        int newHeading = -1;
         String currentHeading = roverStatus.getCurrentHeading();
         newHeading = (HEADINGS.indexOf(currentHeading) < 3) ? HEADINGS.indexOf(currentHeading)+1 : 0;
         roverStatus.setCurrentHeading(HEADINGS.get(newHeading));
