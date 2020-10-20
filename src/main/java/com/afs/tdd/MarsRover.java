@@ -4,7 +4,6 @@ import commands.MoveCommand;
 import commands.TurnLeftCommand;
 import commands.TurnRightCommand;
 
-import java.util.Arrays;
 import java.util.List;
 
 public class MarsRover {
