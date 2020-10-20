@@ -1,5 +1,7 @@
 package com.afs.tdd;
 
+import exceptions.CommandNotDefinedException;
+
 import java.util.Arrays;
 import java.util.List;
 
