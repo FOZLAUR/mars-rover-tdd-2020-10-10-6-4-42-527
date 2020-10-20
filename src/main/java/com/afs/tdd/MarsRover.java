@@ -1,6 +1,8 @@
 package com.afs.tdd;
 
 import commands.MoveCommand;
+import commands.TurnLeftCommand;
+import commands.TurnRightCommand;
 
 import java.util.Arrays;
 import java.util.List;
@@ -21,38 +23,38 @@ public class MarsRover {
     private void executeCommand(String command) {
         switch(command){
             case "M" : commandInvoker.executeOperation(new MoveCommand(roverStatus)); break;
-            case "L" :
-            case "R" : changeHeading(command); break;
+            case "L" : commandInvoker.executeOperation(new TurnLeftCommand(roverStatus)); break;
+            case "R" : commandInvoker.executeOperation(new TurnRightCommand(roverStatus)); break;
             default : System.out.println("Empty command");
         }
     }
 
-    private void changeHeading(String direction) {
-        int newHeading = -1;
-        String currentHeading = roverStatus.getCurrentHeading();
-        switch(direction){
-            case "L":
-                newHeading = (HEADINGS.indexOf(currentHeading) > 0) ? HEADINGS.indexOf(currentHeading)-1 : 3  ;
-                roverStatus.setCurrentHeading(HEADINGS.get(newHeading));
-                break;
-            case "R" :
-                newHeading = (HEADINGS.indexOf(currentHeading) < 3) ? HEADINGS.indexOf(currentHeading)+1 : 0;
-                roverStatus.setCurrentHeading(HEADINGS.get(newHeading));
-                break;
-            default:
-        }
-    }
-
-    private void moveRover() {
-        String currentHeading = roverStatus.getCurrentHeading();
-        switch(currentHeading){
-            case "N": roverStatus.incrementY(); break;
-            case "S": roverStatus.decrementY();; break;
-            case "E": roverStatus.incrementX(); break;
-            case "W": roverStatus.decrementX();; break;
-            default :
-        }
-    }
+//    private void changeHeading(String direction) {
+//        int newHeading = -1;
+//        String currentHeading = roverStatus.getCurrentHeading();
+//        switch(direction){
+//            case "L":
+//                newHeading = (HEADINGS.indexOf(currentHeading) > 0) ? HEADINGS.indexOf(currentHeading)-1 : 3  ;
+//                roverStatus.setCurrentHeading(HEADINGS.get(newHeading));
+//                break;
+//            case "R" :
+//                newHeading = (HEADINGS.indexOf(currentHeading) < 3) ? HEADINGS.indexOf(currentHeading)+1 : 0;
+//                roverStatus.setCurrentHeading(HEADINGS.get(newHeading));
+//                break;
+//            default:
+//        }
+//    }
+//
+//    private void moveRover() {
+//        String currentHeading = roverStatus.getCurrentHeading();
+//        switch(currentHeading){
+//            case "N": roverStatus.incrementY(); break;
+//            case "S": roverStatus.decrementY();; break;
+//            case "E": roverStatus.incrementX(); break;
+//            case "W": roverStatus.decrementX();; break;
+//            default :
+//        }
+//    }
 
     public int getLocationX() {
         return roverStatus.getX();
