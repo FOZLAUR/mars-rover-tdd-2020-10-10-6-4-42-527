@@ -9,15 +9,10 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class DemoTest {
     @Test
-    void should_return_x_0_y_1_heading_N_when_move_rover_given_x_0_y_0_heading_N() {
+    void should_return_x_0_y_1_heading_N_when_move_rover_given_x_0_y_0_heading_N() throws CommandNotDefinedException {
         //given
         MarsRover marsRover = new MarsRover(0,0,"N");
-        List<String> commands = Arrays.asList("");
-        try {
-            commands = new CommandSplitter("M").getCommandList();
-        } catch (CommandNotDefinedException e) {
-            e.printStackTrace();
-        }
+        List<String> commands = new CommandSplitter("M").getCommandList();
 
         //when
         marsRover.executeBatchCommand(commands);
@@ -25,19 +20,14 @@ public class DemoTest {
         //should
         assertEquals(0,marsRover.getLocationX());
         assertEquals(1,marsRover.getLocationY());
-        assertEquals("N",marsRover.getHeading());
+        assertEquals("N",marsRover.getCurrentHeading());
     }
 
     @Test
-    void should_return_x_0_y_negative_1_heading_S_when_move_rover_given_x_0_y_0_heading_S() {
+    void should_return_x_0_y_negative_1_heading_S_when_move_rover_given_x_0_y_0_heading_S() throws CommandNotDefinedException {
         //given
         MarsRover marsRover = new MarsRover(0,0,"S");
-        List<String> commands = Arrays.asList("");
-        try {
-            commands = new CommandSplitter("M").getCommandList();
-        } catch (CommandNotDefinedException e) {
-            e.printStackTrace();
-        }
+        List<String> commands = new CommandSplitter("M").getCommandList();
 
         //when
         marsRover.executeBatchCommand(commands);
@@ -45,19 +35,14 @@ public class DemoTest {
         //should
         assertEquals(0,marsRover.getLocationX());
         assertEquals(-1,marsRover.getLocationY());
-        assertEquals("S",marsRover.getHeading());
+        assertEquals("S",marsRover.getCurrentHeading());
     }
 
     @Test
-    void should_return_x_1_y_0_heading_E_when_move_rover_given_x_0_y_0_heading_E() {
+    void should_return_x_1_y_0_heading_E_when_move_rover_given_x_0_y_0_heading_E() throws CommandNotDefinedException {
         //given
         MarsRover marsRover = new MarsRover(0,0,"E");
-        List<String> commands = Arrays.asList("");
-        try {
-            commands = new CommandSplitter("M").getCommandList();
-        } catch (CommandNotDefinedException e) {
-            e.printStackTrace();
-        }
+        List<String> commands = new CommandSplitter("M").getCommandList();
 
         //when
         marsRover.executeBatchCommand(commands);
@@ -65,19 +50,14 @@ public class DemoTest {
         //should
         assertEquals(1,marsRover.getLocationX());
         assertEquals(0,marsRover.getLocationY());
-        assertEquals("E",marsRover.getHeading());
+        assertEquals("E",marsRover.getCurrentHeading());
     }
 
     @Test
-    void should_return_x_negative_1_y_0_heading_W_when_move_rover_given_x_0_y_0_heading_W() {
+    void should_return_x_negative_1_y_0_heading_W_when_move_rover_given_x_0_y_0_heading_W() throws CommandNotDefinedException {
         //given
         MarsRover marsRover = new MarsRover(0,0,"W");
-        List<String> commands = Arrays.asList("");
-        try {
-            commands = new CommandSplitter("M").getCommandList();
-        } catch (CommandNotDefinedException e) {
-            e.printStackTrace();
-        }
+        List<String> commands = new CommandSplitter("M").getCommandList();
 
         //when
         marsRover.executeBatchCommand(commands);
@@ -85,19 +65,14 @@ public class DemoTest {
         //should
         assertEquals(-1,marsRover.getLocationX());
         assertEquals(0,marsRover.getLocationY());
-        assertEquals("W",marsRover.getHeading());
+        assertEquals("W",marsRover.getCurrentHeading());
     }
 
     @Test
-    void should_return_x_0_y_0_heading_W_when_change_heading_left_given_x_0_y_0_heading_N() {
+    void should_return_x_0_y_0_heading_W_when_change_heading_left_given_x_0_y_0_heading_N() throws CommandNotDefinedException {
         //given
         MarsRover marsRover = new MarsRover(0,0,"N");
-        List<String> commands = Arrays.asList("");
-        try {
-            commands = new CommandSplitter("L").getCommandList();
-        } catch (CommandNotDefinedException e) {
-            e.printStackTrace();
-        }
+        List<String> commands = new CommandSplitter("L").getCommandList();
 
         //when
         marsRover.executeBatchCommand(commands);
@@ -105,19 +80,14 @@ public class DemoTest {
         //should
         assertEquals(0,marsRover.getLocationX());
         assertEquals(0,marsRover.getLocationY());
-        assertEquals("W",marsRover.getHeading());
+        assertEquals("W",marsRover.getCurrentHeading());
     }
 
     @Test
-    void should_return_x_0_y_0_heading_E_when_change_heading_left_given_x_0_y_0_heading_S() {
+    void should_return_x_0_y_0_heading_E_when_change_heading_left_given_x_0_y_0_heading_S() throws CommandNotDefinedException {
         //given
         MarsRover marsRover = new MarsRover(0,0,"S");
-        List<String> commands = Arrays.asList("");
-        try {
-            commands = new CommandSplitter("L").getCommandList();
-        } catch (CommandNotDefinedException e) {
-            e.printStackTrace();
-        }
+        List<String> commands = new CommandSplitter("L").getCommandList();
 
         //when
         marsRover.executeBatchCommand(commands);
@@ -125,19 +95,14 @@ public class DemoTest {
         //should
         assertEquals(0,marsRover.getLocationX());
         assertEquals(0,marsRover.getLocationY());
-        assertEquals("E",marsRover.getHeading());
+        assertEquals("E",marsRover.getCurrentHeading());
     }
 
     @Test
-    void should_return_x_0_y_0_heading_N_when_change_heading_left_given_x_0_y_0_heading_E() {
+    void should_return_x_0_y_0_heading_N_when_change_heading_left_given_x_0_y_0_heading_E() throws CommandNotDefinedException {
         //given
         MarsRover marsRover = new MarsRover(0,0,"E");
-        List<String> commands = Arrays.asList("");
-        try {
-            commands = new CommandSplitter("L").getCommandList();
-        } catch (CommandNotDefinedException e) {
-            e.printStackTrace();
-        }
+        List<String> commands = new CommandSplitter("L").getCommandList();
 
         //when
         marsRover.executeBatchCommand(commands);
@@ -145,19 +110,14 @@ public class DemoTest {
         //should
         assertEquals(0,marsRover.getLocationX());
         assertEquals(0,marsRover.getLocationY());
-        assertEquals("N",marsRover.getHeading());
+        assertEquals("N",marsRover.getCurrentHeading());
     }
 
     @Test
-    void should_return_x_0_y_0_heading_S_when_change_heading_left_given_x_0_y_0_heading_W() {
+    void should_return_x_0_y_0_heading_S_when_change_heading_left_given_x_0_y_0_heading_W() throws CommandNotDefinedException {
         //given
         MarsRover marsRover = new MarsRover(0,0,"W");
-        List<String> commands = Arrays.asList("");
-        try {
-            commands = new CommandSplitter("L").getCommandList();
-        } catch (CommandNotDefinedException e) {
-            e.printStackTrace();
-        }
+        List<String> commands = new CommandSplitter("L").getCommandList();
 
         //when
         marsRover.executeBatchCommand(commands);
@@ -165,19 +125,14 @@ public class DemoTest {
         //should
         assertEquals(0,marsRover.getLocationX());
         assertEquals(0,marsRover.getLocationY());
-        assertEquals("S",marsRover.getHeading());
+        assertEquals("S",marsRover.getCurrentHeading());
     }
 
     @Test
-    void should_return_x_0_y_0_heading_N_when_change_heading_right_given_x_0_y_0_heading_W() {
+    void should_return_x_0_y_0_heading_N_when_change_heading_right_given_x_0_y_0_heading_W() throws CommandNotDefinedException {
         //given
         MarsRover marsRover = new MarsRover(0,0,"W");
-        List<String> commands = Arrays.asList("");
-        try {
-            commands = new CommandSplitter("R").getCommandList();
-        } catch (CommandNotDefinedException e) {
-            e.printStackTrace();
-        }
+        List<String> commands = new CommandSplitter("R").getCommandList();
 
         //when
         marsRover.executeBatchCommand(commands);
@@ -185,19 +140,14 @@ public class DemoTest {
         //should
         assertEquals(0,marsRover.getLocationX());
         assertEquals(0,marsRover.getLocationY());
-        assertEquals("N",marsRover.getHeading());
+        assertEquals("N",marsRover.getCurrentHeading());
     }
 
     @Test
-    void should_return_x_0_y_0_heading_S_when_change_heading_right_given_x_0_y_0_heading_E() {
+    void should_return_x_0_y_0_heading_S_when_change_heading_right_given_x_0_y_0_heading_E() throws CommandNotDefinedException {
         //given
         MarsRover marsRover = new MarsRover(0,0,"E");
-        List<String> commands = Arrays.asList("");
-        try {
-            commands = new CommandSplitter("R").getCommandList();
-        } catch (CommandNotDefinedException e) {
-            e.printStackTrace();
-        }
+        List<String> commands = new CommandSplitter("R").getCommandList();
 
         //when
         marsRover.executeBatchCommand(commands);
@@ -205,19 +155,14 @@ public class DemoTest {
         //should
         assertEquals(0,marsRover.getLocationX());
         assertEquals(0,marsRover.getLocationY());
-        assertEquals("S",marsRover.getHeading());
+        assertEquals("S",marsRover.getCurrentHeading());
     }
 
     @Test
-    void should_return_x_0_y_0_heading_W_when_change_heading_right_given_x_0_y_0_heading_S() {
+    void should_return_x_0_y_0_heading_W_when_change_heading_right_given_x_0_y_0_heading_S() throws CommandNotDefinedException {
         //given
         MarsRover marsRover = new MarsRover(0,0,"S");
-        List<String> commands = Arrays.asList("");
-        try {
-            commands = new CommandSplitter("R").getCommandList();
-        } catch (CommandNotDefinedException e) {
-            e.printStackTrace();
-        }
+        List<String> commands = new CommandSplitter("R").getCommandList();
 
         //when
         marsRover.executeBatchCommand(commands);
@@ -225,19 +170,14 @@ public class DemoTest {
         //should
         assertEquals(0,marsRover.getLocationX());
         assertEquals(0,marsRover.getLocationY());
-        assertEquals("W",marsRover.getHeading());
+        assertEquals("W",marsRover.getCurrentHeading());
     }
 
     @Test
-    void should_return_x_0_y_0_heading_E_when_change_heading_right_given_x_0_y_0_heading_N() {
+    void should_return_x_0_y_0_heading_E_when_change_heading_right_given_x_0_y_0_heading_N() throws CommandNotDefinedException {
         //given
         MarsRover marsRover = new MarsRover(0,0,"N");
-        List<String> commands = Arrays.asList("");
-        try {
-            commands = new CommandSplitter("R").getCommandList();
-        } catch (CommandNotDefinedException e) {
-            e.printStackTrace();
-        }
+        List<String> commands = new CommandSplitter("R").getCommandList();
 
         //when
         marsRover.executeBatchCommand(commands);
@@ -245,19 +185,14 @@ public class DemoTest {
         //should
         assertEquals(0,marsRover.getLocationX());
         assertEquals(0,marsRover.getLocationY());
-        assertEquals("E",marsRover.getHeading());
+        assertEquals("E",marsRover.getCurrentHeading());
     }
 
     @Test
-    void should_return_x_negative_1_y_1_heading_N_when_execute_given_x_0_y_0_heading_N_command_MLMR() {
+    void should_return_x_negative_1_y_1_heading_N_when_execute_given_x_0_y_0_heading_N_command_MLMR() throws CommandNotDefinedException {
         //given
         MarsRover marsRover = new MarsRover(0,0,"N");
-        List<String> commands = Arrays.asList("");
-        try {
-            commands = new CommandSplitter("MLMR").getCommandList();
-        } catch (CommandNotDefinedException e) {
-            e.printStackTrace();
-        }
+        List<String> commands = new CommandSplitter("MLMR").getCommandList();
 
         //when
         marsRover.executeBatchCommand(commands);
@@ -265,7 +200,7 @@ public class DemoTest {
         //should
         assertEquals(-1,marsRover.getLocationX());
         assertEquals(1,marsRover.getLocationY());
-        assertEquals("N",marsRover.getHeading());
+        assertEquals("N",marsRover.getCurrentHeading());
     }
 
     @Test
@@ -274,14 +209,8 @@ public class DemoTest {
         MarsRover marsRover = new MarsRover(0,0,"N");
 
         //when
-        Exception exception = assertThrows(CommandNotDefinedException.class, () -> {
+        assertThrows(CommandNotDefinedException.class, () -> {
             List<String> commands = new CommandSplitter("F").getCommandList();
         });
-
-        String expectedMessage = "This contains an undefined command";
-        String actualMessage = exception.getMessage();
-
-        //should
-        assertEquals(expectedMessage, actualMessage);
     }
 }
