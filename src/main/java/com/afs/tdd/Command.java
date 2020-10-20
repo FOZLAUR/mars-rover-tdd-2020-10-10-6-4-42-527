@@ -1,5 +1,5 @@
 package com.afs.tdd;
 
-public interface Action {
+public interface Command {
     public void execute();
 }
