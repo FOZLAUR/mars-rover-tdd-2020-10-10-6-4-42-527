@@ -5,14 +5,10 @@ import java.util.List;
 
 public class MarsRover {
     final private static List<String> HEADINGS = Arrays.asList("N","E","S","W");
-    private int x;
-    private int y;
-    private String currentHeading;
+    private RoverStatus roverStatus;
 
     public MarsRover(int x, int y, String heading) {
-        this.x = x;
-        this.y = y;
-        this.currentHeading = heading;
+        roverStatus = new RoverStatus(x,y,heading);
     }
 
     public void executeBatchCommand(List<String> commands) {
@@ -30,38 +26,38 @@ public class MarsRover {
 
     private void changeHeading(String direction) {
         int newHeading = -1;
+        String currentHeading = roverStatus.getCurrentHeading();
         switch(direction){
             case "L":
                 newHeading = (HEADINGS.indexOf(currentHeading) > 0) ? HEADINGS.indexOf(currentHeading)-1 : 3  ;
-                currentHeading = HEADINGS.get(newHeading);
+                roverStatus.setCurrentHeading(HEADINGS.get(newHeading));
                 break;
             case "R" :
                 newHeading = (HEADINGS.indexOf(currentHeading) < 3) ? HEADINGS.indexOf(currentHeading)+1 : 0;
-                currentHeading = HEADINGS.get(newHeading);
+                roverStatus.setCurrentHeading(HEADINGS.get(newHeading));
                 break;
             default:
         }
     }
 
     private void moveRover() {
+        String currentHeading = roverStatus.getCurrentHeading();
         switch(currentHeading){
-            case "N": y++; break;
-            case "S": y--; break;
-            case "E": x++; break;
-            case "W": x--; break;
+            case "N": roverStatus.incrementY(); break;
+            case "S": roverStatus.decrementY();; break;
+            case "E": roverStatus.incrementX(); break;
+            case "W": roverStatus.decrementX();; break;
             default :
         }
     }
 
     public int getLocationX() {
-        return x;
+        return roverStatus.getX();
     }
 
-    public int getLocationY() {
-        return y;
-    }
+    public int getLocationY() { return roverStatus.getY(); }
 
     public String getCurrentHeading() {
-        return currentHeading;
+        return roverStatus.getCurrentHeading();
     }
 }
