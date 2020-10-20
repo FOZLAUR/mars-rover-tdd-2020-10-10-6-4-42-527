@@ -7,12 +7,12 @@ public class MarsRover {
     final private static List<String> HEADINGS = Arrays.asList("N","E","S","W");
     private int x;
     private int y;
-    private String heading;
+    private String currentHeading;
 
     public MarsRover(int x, int y, String heading) {
         this.x = x;
         this.y = y;
-        this.heading = heading;
+        this.currentHeading = heading;
     }
 
     public void executeBatchCommand(List<String> commands) {
@@ -32,19 +32,19 @@ public class MarsRover {
         int newHeading = -1;
         switch(direction){
             case "L":
-                newHeading = (HEADINGS.indexOf(heading) > 0) ? HEADINGS.indexOf(heading)-1 : 3  ;
-                heading = HEADINGS.get(newHeading);
+                newHeading = (HEADINGS.indexOf(currentHeading) > 0) ? HEADINGS.indexOf(currentHeading)-1 : 3  ;
+                currentHeading = HEADINGS.get(newHeading);
                 break;
             case "R" :
-                newHeading = (HEADINGS.indexOf(heading) < 3) ? HEADINGS.indexOf(heading)+1 : 0;
-                heading = HEADINGS.get(newHeading);
+                newHeading = (HEADINGS.indexOf(currentHeading) < 3) ? HEADINGS.indexOf(currentHeading)+1 : 0;
+                currentHeading = HEADINGS.get(newHeading);
                 break;
             default:
         }
     }
 
     private void moveRover() {
-        switch(heading){
+        switch(currentHeading){
             case "N": y++; break;
             case "S": y--; break;
             case "E": x++; break;
@@ -61,7 +61,7 @@ public class MarsRover {
         return y;
     }
 
-    public String getHeading() {
-        return heading;
+    public String getCurrentHeading() {
+        return currentHeading;
     }
 }
