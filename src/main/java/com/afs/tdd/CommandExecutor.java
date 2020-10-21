@@ -28,9 +28,9 @@ public class CommandExecutor {
         String currentHeading = roverStatus.getCurrentHeading();
         switch(currentHeading){
             case "N": roverStatus.incrementY(); break;
-            case "S": roverStatus.decrementY();; break;
+            case "S": roverStatus.decrementY(); break;
             case "E": roverStatus.incrementX(); break;
-            case "W": roverStatus.decrementX();; break;
+            case "W": roverStatus.decrementX(); break;
             default :
         }
     }
