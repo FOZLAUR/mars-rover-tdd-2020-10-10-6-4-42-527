@@ -15,12 +15,12 @@ public class DemoTest {
         List<String> commands = new CommandSplitter("M").getCommandList();
 
         //when
-        marsRover.executeBatchCommand(commands);
+        RoverStatus roverStatus = marsRover.executeBatchCommand(commands);
 
         //should
-        assertEquals(0,marsRover.getLocationX());
-        assertEquals(1,marsRover.getLocationY());
-        assertEquals("N",marsRover.getCurrentHeading());
+        assertEquals(0,roverStatus.getX());
+        assertEquals(1,roverStatus.getY());
+        assertEquals("N",roverStatus.getCurrentHeading());
     }
 
     @Test
@@ -30,12 +30,12 @@ public class DemoTest {
         List<String> commands = new CommandSplitter("M").getCommandList();
 
         //when
-        marsRover.executeBatchCommand(commands);
+        RoverStatus roverStatus = marsRover.executeBatchCommand(commands);
 
         //should
-        assertEquals(0,marsRover.getLocationX());
-        assertEquals(-1,marsRover.getLocationY());
-        assertEquals("S",marsRover.getCurrentHeading());
+        assertEquals(0,roverStatus.getX());
+        assertEquals(-1,roverStatus.getY());
+        assertEquals("S",roverStatus.getCurrentHeading());
     }
 
     @Test
@@ -45,12 +45,12 @@ public class DemoTest {
         List<String> commands = new CommandSplitter("M").getCommandList();
 
         //when
-        marsRover.executeBatchCommand(commands);
+        RoverStatus roverStatus = marsRover.executeBatchCommand(commands);
 
         //should
-        assertEquals(1,marsRover.getLocationX());
-        assertEquals(0,marsRover.getLocationY());
-        assertEquals("E",marsRover.getCurrentHeading());
+        assertEquals(1,roverStatus.getX());
+        assertEquals(0,roverStatus.getY());
+        assertEquals("E",roverStatus.getCurrentHeading());
     }
 
     @Test
@@ -60,12 +60,12 @@ public class DemoTest {
         List<String> commands = new CommandSplitter("M").getCommandList();
 
         //when
-        marsRover.executeBatchCommand(commands);
+        RoverStatus roverStatus = marsRover.executeBatchCommand(commands);
 
         //should
-        assertEquals(-1,marsRover.getLocationX());
-        assertEquals(0,marsRover.getLocationY());
-        assertEquals("W",marsRover.getCurrentHeading());
+        assertEquals(-1,roverStatus.getX());
+        assertEquals(0,roverStatus.getY());
+        assertEquals("W",roverStatus.getCurrentHeading());
     }
 
     @Test
@@ -75,12 +75,12 @@ public class DemoTest {
         List<String> commands = new CommandSplitter("L").getCommandList();
 
         //when
-        marsRover.executeBatchCommand(commands);
+        RoverStatus roverStatus = marsRover.executeBatchCommand(commands);
 
         //should
-        assertEquals(0,marsRover.getLocationX());
-        assertEquals(0,marsRover.getLocationY());
-        assertEquals("W",marsRover.getCurrentHeading());
+        assertEquals(0,roverStatus.getX());
+        assertEquals(0,roverStatus.getY());
+        assertEquals("W",roverStatus.getCurrentHeading());
     }
 
     @Test
@@ -90,12 +90,12 @@ public class DemoTest {
         List<String> commands = new CommandSplitter("L").getCommandList();
 
         //when
-        marsRover.executeBatchCommand(commands);
+        RoverStatus roverStatus = marsRover.executeBatchCommand(commands);
 
         //should
-        assertEquals(0,marsRover.getLocationX());
-        assertEquals(0,marsRover.getLocationY());
-        assertEquals("E",marsRover.getCurrentHeading());
+        assertEquals(0,roverStatus.getX());
+        assertEquals(0,roverStatus.getY());
+        assertEquals("E",roverStatus.getCurrentHeading());
     }
 
     @Test
@@ -105,12 +105,12 @@ public class DemoTest {
         List<String> commands = new CommandSplitter("L").getCommandList();
 
         //when
-        marsRover.executeBatchCommand(commands);
+        RoverStatus roverStatus = marsRover.executeBatchCommand(commands);
 
         //should
-        assertEquals(0,marsRover.getLocationX());
-        assertEquals(0,marsRover.getLocationY());
-        assertEquals("N",marsRover.getCurrentHeading());
+        assertEquals(0,roverStatus.getX());
+        assertEquals(0,roverStatus.getY());
+        assertEquals("N",roverStatus.getCurrentHeading());
     }
 
     @Test
@@ -120,12 +120,12 @@ public class DemoTest {
         List<String> commands = new CommandSplitter("L").getCommandList();
 
         //when
-        marsRover.executeBatchCommand(commands);
+        RoverStatus roverStatus = marsRover.executeBatchCommand(commands);
 
         //should
-        assertEquals(0,marsRover.getLocationX());
-        assertEquals(0,marsRover.getLocationY());
-        assertEquals("S",marsRover.getCurrentHeading());
+        assertEquals(0,roverStatus.getX());
+        assertEquals(0,roverStatus.getY());
+        assertEquals("S",roverStatus.getCurrentHeading());
     }
 
     @Test
@@ -135,12 +135,12 @@ public class DemoTest {
         List<String> commands = new CommandSplitter("R").getCommandList();
 
         //when
-        marsRover.executeBatchCommand(commands);
+        RoverStatus roverStatus = marsRover.executeBatchCommand(commands);
 
         //should
-        assertEquals(0,marsRover.getLocationX());
-        assertEquals(0,marsRover.getLocationY());
-        assertEquals("N",marsRover.getCurrentHeading());
+        assertEquals(0,roverStatus.getX());
+        assertEquals(0,roverStatus.getY());
+        assertEquals("N",roverStatus.getCurrentHeading());
     }
 
     @Test
@@ -150,12 +150,12 @@ public class DemoTest {
         List<String> commands = new CommandSplitter("R").getCommandList();
 
         //when
-        marsRover.executeBatchCommand(commands);
+        RoverStatus roverStatus = marsRover.executeBatchCommand(commands);
 
         //should
-        assertEquals(0,marsRover.getLocationX());
-        assertEquals(0,marsRover.getLocationY());
-        assertEquals("S",marsRover.getCurrentHeading());
+        assertEquals(0,roverStatus.getX());
+        assertEquals(0,roverStatus.getY());
+        assertEquals("S",roverStatus.getCurrentHeading());
     }
 
     @Test
@@ -165,12 +165,12 @@ public class DemoTest {
         List<String> commands = new CommandSplitter("R").getCommandList();
 
         //when
-        marsRover.executeBatchCommand(commands);
+        RoverStatus roverStatus = marsRover.executeBatchCommand(commands);
 
         //should
-        assertEquals(0,marsRover.getLocationX());
-        assertEquals(0,marsRover.getLocationY());
-        assertEquals("W",marsRover.getCurrentHeading());
+        assertEquals(0,roverStatus.getX());
+        assertEquals(0,roverStatus.getY());
+        assertEquals("W",roverStatus.getCurrentHeading());
     }
 
     @Test
@@ -180,12 +180,12 @@ public class DemoTest {
         List<String> commands = new CommandSplitter("R").getCommandList();
 
         //when
-        marsRover.executeBatchCommand(commands);
+        RoverStatus roverStatus = marsRover.executeBatchCommand(commands);
 
         //should
-        assertEquals(0,marsRover.getLocationX());
-        assertEquals(0,marsRover.getLocationY());
-        assertEquals("E",marsRover.getCurrentHeading());
+        assertEquals(0,roverStatus.getX());
+        assertEquals(0,roverStatus.getY());
+        assertEquals("E",roverStatus.getCurrentHeading());
     }
 
     @Test
@@ -195,12 +195,12 @@ public class DemoTest {
         List<String> commands = new CommandSplitter("MLMR").getCommandList();
 
         //when
-        marsRover.executeBatchCommand(commands);
+        RoverStatus roverStatus = marsRover.executeBatchCommand(commands);
 
         //should
-        assertEquals(-1,marsRover.getLocationX());
-        assertEquals(1,marsRover.getLocationY());
-        assertEquals("N",marsRover.getCurrentHeading());
+        assertEquals(-1,roverStatus.getX());
+        assertEquals(1,roverStatus.getY());
+        assertEquals("N",roverStatus.getCurrentHeading());
     }
 
     @Test

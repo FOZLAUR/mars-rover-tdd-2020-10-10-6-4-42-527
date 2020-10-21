@@ -14,8 +14,9 @@ public class MarsRover {
         roverStatus = new RoverStatus(x,y,heading);
     }
 
-    public void executeBatchCommand(List<String> commands) {
+    public RoverStatus executeBatchCommand(List<String> commands) {
         commands.stream().forEach(command -> executeCommand(command));
+        return roverStatus;
     }
 
     private void executeCommand(String command) {
@@ -25,15 +26,5 @@ public class MarsRover {
             case "R" : commandInvoker.executeOperation(new TurnRightCommand(roverStatus)); break;
             default : System.out.println("Empty command");
         }
-    }
-
-    public int getLocationX() {
-        return roverStatus.getX();
-    }
-
-    public int getLocationY() { return roverStatus.getY(); }
-
-    public String getCurrentHeading() {
-        return roverStatus.getCurrentHeading();
     }
 }
