@@ -1,37 +1,47 @@
 package com.afs.tdd;
 
+import enums.Headings;
+
 import java.util.Arrays;
 import java.util.List;
 
 public class CommandExecutor {
     final private static List<String> HEADINGS = Arrays.asList("N","E","S","W");
     private RoverStatus roverStatus;
-    private int newHeading;
+    private int newHeadingIndex;
 
     public CommandExecutor(RoverStatus roverStatus){
         this.roverStatus = roverStatus;
     }
 
     public void turnLeft() {
-        String currentHeading = roverStatus.getCurrentHeading();
-        newHeading = (HEADINGS.indexOf(currentHeading) > 0) ? HEADINGS.indexOf(currentHeading)-1 : 3  ;
-        roverStatus.setCurrentHeading(HEADINGS.get(newHeading));
+        newHeadingIndex = (getCurrentHeading().ordinal() > 0) ? getCurrentHeading().ordinal()-1 : 3;
+        Headings newHeading = Headings.values()[newHeadingIndex];
+        roverStatus.setCurrentHeading(newHeading.getValue());
     }
 
     public void turnRight() {
-        String currentHeading = roverStatus.getCurrentHeading();
-        newHeading = (HEADINGS.indexOf(currentHeading) < 3) ? HEADINGS.indexOf(currentHeading)+1 : 0;
-        roverStatus.setCurrentHeading(HEADINGS.get(newHeading));
+        newHeadingIndex = (getCurrentHeading().ordinal() < 3) ? getCurrentHeading().ordinal()+1 : 0;
+        Headings newHeading = Headings.values()[newHeadingIndex];
+        roverStatus.setCurrentHeading(newHeading.getValue());
     }
 
     public void moveRover() {
-        String currentHeading = roverStatus.getCurrentHeading();
+        Headings currentHeading = getCurrentHeading();
         switch(currentHeading){
-            case "N": roverStatus.incrementY(); break;
-            case "S": roverStatus.decrementY(); break;
-            case "E": roverStatus.incrementX(); break;
-            case "W": roverStatus.decrementX(); break;
-            default :
+            case NORTH: roverStatus.incrementY(); break;
+            case SOUTH: roverStatus.decrementY(); break;
+            case EAST: roverStatus.incrementX(); break;
+            case WEST: roverStatus.decrementX(); break;
         }
+    }
+
+    public Headings getCurrentHeading(){
+        String currentHeading = roverStatus.getCurrentHeading();
+        return Arrays.asList(Headings.values())
+                .stream()
+                .filter(heading -> heading.getValue().equals(currentHeading))
+                .findFirst()
+                .orElse(null);
     }
 }
