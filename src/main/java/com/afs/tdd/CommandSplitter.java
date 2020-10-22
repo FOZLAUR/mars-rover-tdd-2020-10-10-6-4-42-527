@@ -13,7 +13,7 @@ public class CommandSplitter {
     }
 
     public List<String> getCommandList() throws CommandNotDefinedException {
-        if(input.matches("^[MLR]*$")) {
+        if(input.matches("^[MLR]+$")) {
             return Arrays.asList(input.split(""));
         } else {
             throw new CommandNotDefinedException();
